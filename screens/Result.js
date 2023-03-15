@@ -2,10 +2,11 @@ import {StyleSheet, Text, Image, View, TouchableOpacity} from 'react-native';
 import React from 'react';
 
 const Result = ({navigation, route}) => {
+  const {score} = route.params;
   return (
     <View>
-      <View>
-        <Text>Result</Text>
+      <View style={styles.resultContainer}>
+        <Text style={styles.score}>{score}</Text>
       </View>
       <View style={styles.bannercontainer}>
         <Image
@@ -14,8 +15,10 @@ const Result = ({navigation, route}) => {
         />
       </View>
       <View>
-        <TouchableOpacity onPress={() => navigation.navigate('Home')}>
-          <Text>HomeBtn</Text>
+        <TouchableOpacity
+          style={styles.btn}
+          onPress={() => navigation.navigate('Home')}>
+          <Text style={styles.bntext}>Play Again</Text>
         </TouchableOpacity>
       </View>
     </View>
@@ -30,5 +33,28 @@ const styles = StyleSheet.create({
     width: 200,
     height: 200,
     backgroundColor: 'yellow',
+  },
+  score: {
+    color: '#973AA8',
+    fontSize: 34,
+  },
+  resultContainer: {
+    marginTop: 15,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  btn: {
+    alignSelf: 'center',
+    maxWidth: '30%',
+    backgroundColor: '#973AA8',
+    padding: 15,
+    borderRadius: 16,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  bntext: {
+    fontSize: 18,
+    fontWeight: '600',
+    color: '#fff',
   },
 });

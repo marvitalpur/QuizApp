@@ -111,7 +111,11 @@ const Quize = ({navigation}) => {
             )}
             {ques == 9 && (
               <TouchableOpacity
-                onPress={() => navigation.navigate('Result', {})}
+                onPress={() =>
+                  navigation.navigate('Result', {
+                    score: score,
+                  })
+                }
                 style={styles.btn}>
                 <Text style={styles.bntext}>Show Result</Text>
               </TouchableOpacity>

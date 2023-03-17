@@ -10,7 +10,7 @@ const StackNavigtor = () => {
   return (
     <Stack.Navigator
       screenOptions={{
-        headerShown: 'false',
+        headerShown: false,
         headerTransparent: 'true',
         animationTypeForReplace: 'push',
         Animation: 'slide_from_right',

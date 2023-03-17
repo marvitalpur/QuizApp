@@ -1,5 +1,6 @@
 import {StyleSheet, Text, TouchableOpacity, View} from 'react-native';
 import React, {useEffect, useState} from 'react';
+import LinearGradient from 'react-native-linear-gradient';
 const ShuffleArray = array => {
   for (let i = array.length - 1; i > 0; i--) {
     const j = Math.floor(Math.random() * (i + 1));
@@ -48,7 +49,12 @@ const Quize = ({navigation}) => {
     console.log(_option === questions[ques].correct_answer);
   };
   return (
-    <View style={styles.container}>
+    <LinearGradient
+      start={{x: 0.0, y: 0.25}}
+      end={{x: 0.5, y: 1.0}}
+      locations={[0, 0.5, 0.6]}
+      colors={['#F72585', '#B5179E']}
+      style={styles.container}>
       {questions && (
         <View style={styles.parent}>
           <View style={styles.Top}>
@@ -105,8 +111,6 @@ const Quize = ({navigation}) => {
             {ques !== 9 && (
               <TouchableOpacity onPress={HandleNextPress} style={styles.btn}>
                 <Text style={styles.bntext}>SKIP</Text>
-
-                <Text style={styles.bntext}>SKIP</Text>
               </TouchableOpacity>
             )}
             {ques == 9 && (
@@ -116,7 +120,7 @@ const Quize = ({navigation}) => {
                     score: score,
                   })
                 }
-                style={styles.btn}>
+                style={[styles.btn, {backgroundColor: '#F72585'}]}>
                 <Text style={styles.bntext}>Show Result</Text>
               </TouchableOpacity>
             )}
@@ -131,7 +135,7 @@ const Quize = ({navigation}) => {
           </View>
         </View>
       )}
-    </View>
+    </LinearGradient>
   );
 };
 
@@ -158,7 +162,7 @@ const styles = StyleSheet.create({
   },
   btn: {
     // width: '100%',
-    backgroundColor: '#973AA8',
+    backgroundColor: '#560BAD',
     padding: 8,
     borderRadius: 16,
     alignItems: 'center',
@@ -174,8 +178,8 @@ const styles = StyleSheet.create({
   },
 
   questions: {
-    fontSize: 24,
-    color: '#000',
+    fontSize: 32,
+    color: '#FFF',
   },
   optionbtn: {
     paddingVertical: 12,
